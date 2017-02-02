@@ -101,9 +101,17 @@ if drawdiag:
         if d not in dirs.keys():
             dirs[d] = files
         else:
-            dirs[d].update(files)
+            if dirs[d] is None:
+                dirs[d] = files
+            else:
+                if f not in dirs[d].keys():
+                    dirs[d].update(files)
+                else:
+                    dirs[d][f] = dirs[d][f] + files[f]
 
-    print dirs
+    #print dirs
+    #print paths
+    #print files
     prevdir = None
     for d in sorted(dirs.keys()):
         bdiagsrc += d + ' [label = "' + d + '", shape = square];\n'
@@ -113,7 +121,7 @@ if drawdiag:
             bdiagsrc += prevdir + ' -> ' + d + ';'
         prevdir = dend
         for filename in sorted(dirs[d].keys()):
-            bdiagsrc += filename + ' [label = "' + filename + '", shape = roundedbox];\n'
+            bdiagsrc += filename + ' [label = "' + filename + ' - ' + ';'.join(str(t) for t in dirs[d][filename]) + '", shape = roundedbox];\n'
             bdiagsrc +=  d + ' -> ' + filename + ' -> ' + dend + ';\n'
             # bdiagsrc +=  d + ' -> ' + filename + ';\n'
             # prevtable = filename
