@@ -4,6 +4,9 @@ class Connector(object):
     def copy(self):
         pass
 
+    def getConector(self):
+        return self.copy()
+
     def connect(self, connection_params=None):
         pass
 
