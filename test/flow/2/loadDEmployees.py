@@ -1,4 +1,4 @@
-connectorDest = connectorDest.getConector()
+connectorDest = connectorDest.getConnection()
 tabdEmployees = lib.table.SQLTable(
     connector=connectorDest
     , name='dEmployees'
@@ -8,7 +8,7 @@ tabdEmployees = lib.table.SQLTable(
     , default_args=default_args)
 
 
-connectorSrc = connectorSrc.getConector()
+connectorSrc = connectorSrc.getConnection()
 tabEmployees = lib.table.SQLTable(
     connector=connectorSrc
     , name='Employees'

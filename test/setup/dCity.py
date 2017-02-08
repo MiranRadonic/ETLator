@@ -1,7 +1,7 @@
 # Global definition
 # Used for lookup operations during the flow stage
 
-connectorDest = connectorDest.getConector()
+connectorDest = connectorDest.getConnection()
 tabdCity = lib.table.SQLTable(
     connector=connectorDest
     , name='dCity'

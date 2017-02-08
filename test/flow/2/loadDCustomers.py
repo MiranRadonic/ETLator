@@ -1,4 +1,4 @@
-connectorDest = connectorDest.getConector()
+connectorDest = connectorDest.getConnection()
 tabdCustomers = lib.table.SCDTable(
     connector=connectorDest
     , name='dCustomers'
@@ -11,7 +11,7 @@ tabdCustomers = lib.table.SCDTable(
     , default_args=default_args)
 
 
-connectorSrc = connectorSrc.getConector()
+connectorSrc = connectorSrc.getConnection()
 tabCustomers = lib.table.SQLTable(
     connector=connectorSrc
     , name='Customers'

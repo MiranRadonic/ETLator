@@ -1,4 +1,4 @@
-connectorDest = connectorDest.getConector()
+connectorDest = connectorDest.getConnection()
 tabdCity = lib.table.SQLTable(
     connector=connectorDest
     , name='dCity'
@@ -8,7 +8,7 @@ tabdCity = lib.table.SQLTable(
     , default_args=default_args)
 
 
-connectorSrc = connectorSrc.getConector()
+connectorSrc = connectorSrc.getConnection()
 tabCity = lib.table.SQLTable(
     connector=connectorSrc
     , name='City'

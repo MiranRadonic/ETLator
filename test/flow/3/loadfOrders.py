@@ -1,4 +1,4 @@
-connectorDest = connectorDest.getConector()
+connectorDest = connectorDest.getConnection()
 tabfOrders = lib.table.SQLTable(
     connector=connectorDest
     , name='fOrders'
@@ -9,7 +9,7 @@ tabfOrders = lib.table.SQLTable(
     , show_progress=True)
 
 
-connectorSrc = connectorSrc.getConector()
+connectorSrc = connectorSrc.getConnection()
 tabOrders = lib.table.SQLTable(
     connector=connectorSrc
     , name='Orders'

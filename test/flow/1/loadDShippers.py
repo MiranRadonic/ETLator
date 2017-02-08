@@ -1,4 +1,4 @@
-connectorDest = connectorDest.getConector()
+connectorDest = connectorDest.getConnection()
 tabdShippers = lib.table.SQLTable(
     connector=connectorDest
     , name='dShippers'
@@ -8,7 +8,7 @@ tabdShippers = lib.table.SQLTable(
     , default_args=default_args)
 
 
-connectorSrc = connectorSrc.getConector()
+connectorSrc = connectorSrc.getConnection()
 tabShippers = lib.table.SQLTable(
     connector=connectorSrc
     , name='Shippers'
