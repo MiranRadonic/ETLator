@@ -44,9 +44,4 @@ for row in tabCustomers:
     row['DateValidFrom'] = datetime.now()
     row['DateValidTo'] = None
 
-    if row['AuditAction'] == 'I':
-        tabdCustomers.insert(row)
-
-    elif row['AuditAction'] == 'U':
-        tabdCustomers.date_from_value=row['AuditDate']
-        tabdCustomers.scd_update(row)
+    tabdCustomers.scd_upsert(row, 'AuditAction', 'U', 'I', 'AuditDate')

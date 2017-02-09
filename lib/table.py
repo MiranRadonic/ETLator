@@ -463,6 +463,14 @@ class SCDTable(SQLTable):
 
         self.insert(row)
 
+    def scd_upsert(self, row, action_column, update_value,
+                insert_value, date_changed_column):
+         if row[action_column] == insert_value:
+             self.insert(row)
+        elif row[action_colum] == update_value:
+            self.date_from_value=row[date_changed_column]
+            self.scd_update(row)
+
     def lookup(self, row, columns=None):
         query = "SELECT " + ', '.join(self.column_names) + " FROM " + self.name + " WHERE "
         vals = []
